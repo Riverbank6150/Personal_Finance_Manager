@@ -23,13 +23,6 @@ import seaborn as sns
 
 # -----TODO: get banking information from plaid api referencing the quickstart file
 def bank_statements_extraction():
-    # PLAID_CLIENT_ID=66ea2641a43c45001afcd95b
-    # PLAID_SECRET=0fc5b8b633593cacf1def913e7b620
-    # PLAID_ENV=sandbox
-    # PLAID_PRODUCTS=auth,transactions,identity
-    # PLAID_COUNTRY_CODES=US,CA
-
-    # PLAID_REDIRECT_URI=
 
     return 0
     # print("hello world")
