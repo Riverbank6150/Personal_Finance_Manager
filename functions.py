@@ -6,7 +6,8 @@ from typing import List
 
 def __init_visa_dict():
     categories_dict = {}
-    with open('visa_transaction_mapping.csv', mode='r') as file:
+
+    with open('data/visa_transaction_mapping.csv', mode='r') as file:
         reader = csv.DictReader(file)
         for row in reader:
             categories_dict[row['transaction_info']] = row['transaction_category']
@@ -19,7 +20,8 @@ visa_categories_dict = __init_visa_dict()
 
 def __init_savings_dict():
     categories_dict = {}
-    with open('savings_transaction_mapping.csv', mode='r') as file:
+
+    with open('data/savings_transaction_mapping.csv',mode='r') as file:
         reader = csv.DictReader(file)
         for row in reader:
             categories_dict[row['transaction_info']] = row['transaction_category']

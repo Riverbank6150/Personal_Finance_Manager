@@ -30,14 +30,17 @@ def bank_statements_extraction():
 
 def csv_to_dataframe():
     # read_file = pd.read_csv('cibc.csv', header=None)
-    initial_directory = 'C:/users/Cameron/downloads/cibc.csv'
-    final_directory = 'C:/Users/Cameron/Desktop/Python_Projects/Personal_Finance_Manager/foo.csv'
+    # initial_directory = 'C:/users/Cameron/downloads/cibc.csv'
+    initial_directory = 'C:/Users/Cameron/Downloads/cibc.csv'
+
+    # foo file for the sake of testing
+    final_directory = 'C:/Users/Cameron/Desktop/Python_Projects/Personal_Finance_Manager/data/foo.csv'
 
     # ifExist = os.path.exists(path)
     # print(ifExist)
 
     if os.path.exists(initial_directory):
-    # if os.path.exists('C:/users/Cameron/downloads/cibc.csv'):
+        # os.rename(initial_directory, final_directory)
         shutil.move(initial_directory, final_directory)
 
     df = pd.read_csv(final_directory)
@@ -51,7 +54,7 @@ def csv_to_dataframe():
 
 def visa_csv_to_dataframe():
     # read original bank transaction csv file and create dataframe with headers added - original csv file does not have headers, just data
-    read_file = pd.read_csv('visa.csv', header=None)
+    read_file = pd.read_csv('data/visa.csv', header=None)
     visa_df = pd.DataFrame(read_file)
     visa_df.columns = ['date_of_transaction', 'transaction_information', 'amount_transacted_out',
                        'amount_transacted_in',
@@ -79,7 +82,7 @@ def visa_csv_to_dataframe():
 
 
 def savings_csv_to_dataframe():
-    savings_read_file = pd.read_csv('savings.csv', header=None)
+    savings_read_file = pd.read_csv('data/savings.csv', header=None)
     savings_df = pd.DataFrame(savings_read_file)
     savings_df.columns = ['date_of_transaction', 'transaction_information', 'amount_transacted_out',
                           'amount_transacted_in']
@@ -98,17 +101,17 @@ def savings_csv_to_dataframe():
 
 
 def print_to_files(visa_df, savings_df):
-    visa_df.to_csv('updated_visa.csv', encoding='utf-8', index=False)
-    savings_df.to_csv('updated_savings.csv', encoding='utf-8', index=False)
+    visa_df.to_csv('data/updated_visa.csv', encoding='utf-8', index=False)
+    savings_df.to_csv('data/updated_savings.csv', encoding='utf-8', index=False)
 
-    visa_df.to_json('updated_visa.json', orient="records", lines=True)
-    savings_df.to_json('updated_savings.json', orient="records", lines=True)
+    visa_df.to_json('data/updated_visa.json', orient="records", lines=True)
+    savings_df.to_json('data/updated_savings.json', orient="records", lines=True)
 
-    visa_df.to_parquet('updated_visa.parquet', compression='gzip')
-    savings_df.to_parquet('updated_savings.parquet', compression='gzip')
+    visa_df.to_parquet('data/updated_visa.parquet', compression='gzip')
+    savings_df.to_parquet('data/updated_savings.parquet', compression='gzip')
 
-    visa_df.to_excel('updated_visa.xlsx', index=False)
-    savings_df.to_excel('updated_savings.xlsx', index=False)
+    visa_df.to_excel('data/updated_visa.xlsx', index=False)
+    savings_df.to_excel('data/updated_savings.xlsx', index=False)
 
 
 def savings_balance(visa_df, savings_df):
