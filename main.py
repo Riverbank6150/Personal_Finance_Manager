@@ -3,13 +3,16 @@ from expense_tracker import *
 
 def expense_tracker():
     # bank_statements_extraction()
-
-    csv_to_dataframe()
+    csv_to_dataframe_wip()
+    # visa_df, savings_df = csv_to_dataframe()
 
     visa_df = visa_csv_to_dataframe()
     savings_df = savings_csv_to_dataframe()
 
-    print_to_files(visa_df, savings_df)
+    # print_to_files(visa_df, savings_df)
+
+    visa_print_to_files(visa_df)
+    savings_print_to_files(savings_df)
     # savings_balance(visa_df, savings_df)
 
     # transaction_category(df)
